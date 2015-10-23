@@ -2,7 +2,6 @@
   .page-header
     %h2 Log in
   = simple_form_for(resource, url: session_path(resource_name)) do |f|
-    = f.input :name, class: 'form-control'
     = f.input :email, class: 'form-control'
     = f.input :password,  class: 'form-control'
     %label
