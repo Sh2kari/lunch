@@ -24,14 +24,17 @@
               %li= link_to "Sign up", new_user_registration_path
               %li= link_to 'Log in', new_user_session_path
     .container
-      - if @cart
-        .cart
-          =render @cart
-      - flash.each do |name, msg|
-        = content_tag :div, msg, id: "flash_#{name}"
-      = yield
-      .navbar-right.navbar-top
-        %h3 Sidebar
-        %ul.nav.nav-list
-          - categories.each do |category|
-            %li.reload= link_to category.name, root_path(filter: category.id)
+      %div.row
+        %div.col-md-2
+          - if @cart
+            .cart
+              =render @cart
+          - flash.each do |name, msg|
+            = content_tag :div, msg, id: "flash_#{name}"
+        %div.col-md-8
+          = yield
+        %div.col-md-2
+          %h3 Course
+          %ul.nav.nav-list
+            - categories.each do |category|
+              %li.reload= link_to category.name, root_path(filter: category.id)
