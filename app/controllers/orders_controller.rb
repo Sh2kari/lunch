@@ -24,6 +24,12 @@ def new
   redirect_to root_path, notice: "Your cart is empty"
   return
   end
+  if !(@cart.check_category)
+    Cart.destroy(session[:cart_id])
+    session[:cart_id] = nil
+    redirect_to root_path, notice: "You must pay 1 - first, 1 - main, 1 - drink"
+  return
+  end
   @order = Order.new
   respond_to do |format|
     format.html
