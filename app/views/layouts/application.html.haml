@@ -27,3 +27,9 @@
       - flash.each do |name, msg|
         = content_tag :div, msg, id: "flash_#{name}"
       = yield
+      - if @cart
+        = render @cart
+
+      %ul
+        - categories.each do |category|
+          %li.reload= link_to category.name, root_path(filter: category.id)

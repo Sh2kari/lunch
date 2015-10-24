@@ -1,0 +1,8 @@
+%table
+  = render(cart.line_items)
+  %tr
+    %td{:colspan => "2"}
+      %h5 Total
+    %b= number_to_currency(cart.total_price)
+.inline_button
+  = button_to "checkout", new_order_path, method: :get, :class => 'btn btn-success'
