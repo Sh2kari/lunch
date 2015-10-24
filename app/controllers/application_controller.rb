@@ -16,6 +16,12 @@ class ApplicationController < ActionController::Base
     @categories = Category.all
   end
 
+  def current_cart
+    cart = Cart.where(id: session[:cart_id]).first_or_create
+    session[:cart_id] = cart.id
+    cart
+  end
+
   def weekend
   end
 end
