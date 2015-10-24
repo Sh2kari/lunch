@@ -79,6 +79,11 @@ GEM
     diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.6.0)
+    factory_girl (4.5.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.5.0)
+      factory_girl (~> 4.5.0)
+      railties (>= 3.0.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     haml (4.0.7)
@@ -217,6 +222,7 @@ GEM
       nokogiri (>= 1.2.0)
       rack (>= 1.0)
       rack-test (>= 0.5.3)
+    will_paginate (3.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -232,6 +238,7 @@ DEPENDENCIES
   coffee-rails
   database_cleaner
   devise
+  factory_girl_rails
   haml
   html2haml
   jbuilder
@@ -250,6 +257,7 @@ DEPENDENCIES
   uglifier
   web-console
   webrat
+  will_paginate
 
 BUNDLED WITH
    1.10.6

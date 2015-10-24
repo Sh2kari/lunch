@@ -15,6 +15,7 @@ gem 'responders'
 gem 'simple_form'
 gem 'html2haml'
 gem 'bootstrap-sass'
+gem 'will_paginate'
 gem 'rails_best_practices'
 
 group :doc do
@@ -25,6 +26,7 @@ group :development, :test do
   gem 'byebug'
   gem 'sqlite3'
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 group :test do

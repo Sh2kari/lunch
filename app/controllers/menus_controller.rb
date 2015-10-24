@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+  before_action :current_admin
   before_action :set_menu, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
@@ -30,43 +31,30 @@ class MenusController < ApplicationController
   # POST /menus.json
   def create
     @menu = Menu.new(menu_params)
-
-    respond_to do |format|
-      if @menu.save
-        format.html { redirect_to @menu, notice: 'Menu was successfully created.' }
-        format.json { render :show, status: :created, location: @menu }
-      else
-        format.html { render :new }
-        format.json { render json: @menu.errors, status: :unprocessable_entity }
-      end
-    end
+    respond_with(@menu)
   end
 
   # PATCH/PUT /menus/1
   # PATCH/PUT /menus/1.json
   def update
-    respond_to do |format|
-      if @menu.update(menu_params)
-        format.html { redirect_to @menu, notice: 'Menu was successfully updated.' }
-        format.json { render :show, status: :ok, location: @menu }
-      else
-        format.html { render :edit }
-        format.json { render json: @menu.errors, status: :unprocessable_entity }
-      end
-    end
+    @menu.update(menu_params)
+    respond_with(@menu)
   end
 
   # DELETE /menus/1
   # DELETE /menus/1.json
   def destroy
     @menu.destroy
-    respond_to do |format|
-      format.html { redirect_to menus_url, notice: 'Menu was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    respond_with(@menu)
   end
 
   private
+
+    def current_admin
+      if !current_user.admin?
+        redirect_to root_path, notice: "You are not admin!"
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_menu
       @menu = Menu.find(params[:id])
