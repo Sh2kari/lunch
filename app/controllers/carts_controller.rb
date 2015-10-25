@@ -14,15 +14,11 @@ class CartsController < ApplicationController
 
   def create
     @cart = Cart.new(params[:cart])
-    if @cart.save
-      redirect_to carts_path
-    end
+    redirect_to carts_path if @cart.save
   end
 
   def update
-    if @cart.update(params[:cart])
-      redirect_to @cart
-    end
+    redirect_to @cart if @cart.update(params[:cart])
   end
 
   private

@@ -6,17 +6,17 @@ class Cart < ActiveRecord::Base
   end
 
   def total_price
-    line_items.to_a.sum{ |item| item.menu.price }
+    line_items.to_a.sum { |item| item.menu.price }
   end
 
   def check_category
     counter = 0
     temp = []
-    line_items.to_a.each {|item|
+    line_items.to_a.each do|item|
       temp[counter] = item.menu.category_id
       counter += 1
-    }
-    if ((temp[0] === temp[1]) || (temp[0] === temp[2]) || (temp[1] === temp[2]) || (line_items.count > 3))
+    end
+    if (temp[0] === temp[1]) || (temp[0] === temp[2]) || (temp[1] === temp[2]) || (line_items.count > 3)
       return false
     else
       return true

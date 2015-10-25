@@ -51,18 +51,17 @@ class MenusController < ApplicationController
 
   private
 
-    def current_admin
-      if !current_user.admin?
-        redirect_to root_path, notice: "You are not admin!"
-      end
-    end
-    # Use callbacks to share common setup or constraints between actions.
-    def set_menu
-      @menu = Menu.find(params[:id])
-    end
+  def current_admin
+    redirect_to root_path, notice: 'You are not admin!' unless current_user.admin?
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def menu_params
-      params.require(:menu).permit(:title, :price)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_menu
+    @menu = Menu.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def menu_params
+    params.require(:menu).permit(:title, :price)
+  end
 end
