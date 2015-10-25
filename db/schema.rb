@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 20_151_024_142_013) do
     t.datetime 'updated_at',  null: false
   end
 
-<<<<<<< HEAD
     add_index :menus, :category_id
 
   create_table 'orders', force: :cascade do |t|
@@ -71,7 +70,6 @@ ActiveRecord::Schema.define(version: 20_151_024_142_013) do
     t.boolean 'admin', default: false
   end
 
-=======
   create_table 'orders', force: :cascade do |t|
     t.string 'name'
     t.string 'email'
@@ -97,7 +95,6 @@ ActiveRecord::Schema.define(version: 20_151_024_142_013) do
     t.boolean 'admin', default: false
   end
 
->>>>>>> 97b7718de6fb3923a2cbd4cb946656fe289e561c
   add_index 'users', ['email'], name: 'index_users_on_email', unique: true
   add_index 'users', ['name'], name: 'index_users_on_name', unique: true
   add_index 'users', ['reset_password_token'], name: 'index_users_on_reset_password_token', unique: true
