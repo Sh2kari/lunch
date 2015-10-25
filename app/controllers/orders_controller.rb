@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
       render 'new'
     end
   end
+<<<<<<< HEAD
 
   def new
     @cart = current_cart
@@ -37,6 +38,29 @@ class OrdersController < ApplicationController
   end
 
   private
+=======
+
+  def new
+    @cart = current_cart
+    if @cart.line_items.empty?
+      redirect_to root_path, notice: 'Your cart is empty'
+      return
+    end
+    unless @cart.check_category
+      Cart.destroy(session[:cart_id])
+      session[:cart_id] = nil
+      redirect_to root_path, notice: 'You must pay 1 - first, 1 - main, 1 - drink'
+      return
+    end
+    @order = Order.new
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  private
+
+>>>>>>> 97b7718de6fb3923a2cbd4cb946656fe289e561c
   def order_params
     params.require(:order).permit(:name, :email, :price)
   end
