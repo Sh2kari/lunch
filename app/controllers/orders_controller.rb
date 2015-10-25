@@ -37,11 +37,6 @@ class OrdersController < ApplicationController
   end
 
   private
-
-  def find_order
-    @order = Order.find(params[:id])
-  end
-
   def order_params
     params.require(:order).permit(:name, :email, :price)
   end

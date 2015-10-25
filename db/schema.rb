@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20_151_024_142_013) do
     t.datetime 'updated_at',  null: false
   end
 
+    add_index :menus, :category_id
+
   create_table 'orders', force: :cascade do |t|
     t.string 'name'
     t.string 'email'
