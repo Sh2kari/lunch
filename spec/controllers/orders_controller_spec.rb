@@ -15,7 +15,6 @@ RSpec.describe OrdersController, type: :controller do
     let(:user) { FactoryGirl.create(:user)}
     let(:cart) { FactoryGirl.create(:cart)}
     let(:line_item) { FactoryGirl.create(:line_item)}
-    subject { FactoryGirl.create(:order)}
     let(:order_params) { FactoryGirl.create(:order) }
     before do
       sign_in user
@@ -29,5 +28,14 @@ RSpec.describe OrdersController, type: :controller do
     end
   end
 
+  describe "Post #create" do
+    @order = FactoryGirl.create :order
+    it "should create order" do
+      assert_difference('Order.count') do
+        post :create,  order: { name: "sasha", email: "hhhh@kkk.com", price: "23", address: "gfdgdfgdsdfgsdgsdfgsdgsdf" }
+      end
+      assert_redirected_to root_path
+    end
+  end
 end
 end

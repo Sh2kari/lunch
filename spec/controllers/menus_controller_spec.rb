@@ -78,7 +78,5 @@ RSpec.describe MenusController, type: :controller do
       expect(response).to redirect_to menus_path 
     end
   end
-
   end
-
 end
