@@ -9,8 +9,4 @@ class Order < ActiveRecord::Base
       line_items << item
     end
   end
-
-  def self.total_price
-    self.sum{|item| item.price }
-  end
 end

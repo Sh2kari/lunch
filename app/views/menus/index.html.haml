@@ -3,14 +3,16 @@
 %table
   %thead
     %tr
-      %th.price Title&nbsp;
+      %th Title&nbsp;
       %th Price&nbsp;
+      %th Category&nbsp;
       %th{:colspan => "10"}
   %tbody
     - @menus.each do |menu|
       %tr
         %td= menu.title
         %td= menu.price
+        %td= menu.category_id
         %td
           = link_to 'Show', menu
           =link_to 'Edit', edit_menu_path(menu)

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "users" => 'users#index'
   resources :menus
   resources :orders
+  resources :carts
 
   resources :line_items, only: [:create]
 

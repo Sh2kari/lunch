@@ -17,7 +17,7 @@ Menu.create!([
 {
 title: "Borsh",
 price: "70" ,
-category: first_category
+category: 1
 },
 {
 title: "Pizza",

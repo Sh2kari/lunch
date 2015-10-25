@@ -31,6 +31,7 @@ class MenusController < ApplicationController
   # POST /menus.json
   def create
     @menu = Menu.new(menu_params)
+    @menu.save
     respond_with(@menu)
   end
 

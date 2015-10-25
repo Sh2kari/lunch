@@ -1,5 +1,4 @@
 class OrdersController < ApplicationController
-  before_action :current_admin
 def index
   @orders = Order.paginate(:page => params[:page], :per_page => 10).order('created_at DESC')
 end
@@ -38,12 +37,6 @@ def new
 end
 
   private
-
-  def current_admin
-    if !current_user.admin?
-      redirect_to root_path, notice: "You are not admin!"
-    end
-  end
 
   def find_order
     @order = Order.find(params[:id])

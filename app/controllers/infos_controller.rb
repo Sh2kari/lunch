@@ -6,5 +6,6 @@ class InfosController < ApplicationController
       @menus = Menu.order("Created_at DESC").limit(3);
     end
     @cart = current_cart
+    @menusall = Menu.all
   end
 end
