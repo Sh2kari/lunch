@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   get 'admin/index'
   devise_for :users
-  get "users" => 'users#index'
+  get 'users' => 'users#index'
   resources :menus
-  resources :orders
-  resources :carts
+  resources :orders, only: [:new, :create, :index]
+  resources :carts, except: [:edit, :destroy]
 
   resources :line_items, only: [:create]
 

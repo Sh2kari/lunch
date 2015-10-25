@@ -9,54 +9,54 @@
 Menu.destroy_all
 Category.destroy_all
 
-first_category = Category.create!(name: "First course")
-main_category = Category.create!(name: "Main course")
-drink_category = Category.create!(name: "Drink")
+first_category = Category.create!(name: 'First course')
+main_category = Category.create!(name: 'Main course')
+drink_category = Category.create!(name: 'Drink')
 
 Menu.create!([
-{
-title: "Borsh",
-price: "70" ,
-category: first_category
-},
-{
-title: "Pizza",
-price: "200" ,
-category: first_category
-},
-{
-title: "Sushi",
-price: "180" ,
-category: first_category
-},
-{
-title: "Pasta",
-price: "230" ,
-category: main_category
-},
-{
-title: "Salad",
-price: "220" ,
-category: main_category
-},
-{
-title: "Big_bon",
-price: "120" ,
-category: main_category
-},
-{
-title: "Vodka",
-price: "666" ,
-category: drink_category
-},
-{
-title: "Coca-Cola",
-price: "50" ,
-category: drink_category
-},
-{
-title: "Green Tea",
-price: "10" ,
-category: drink_category
-}
+  {
+    title: 'Borsh',
+    price: '70',
+    category: first_category
+  },
+  {
+    title: 'Pizza',
+    price: '200',
+    category: first_category
+  },
+  {
+    title: 'Sushi',
+    price: '180',
+    category: first_category
+  },
+  {
+    title: 'Pasta',
+    price: '230',
+    category: main_category
+  },
+  {
+    title: 'Salad',
+    price: '220',
+    category: main_category
+  },
+  {
+    title: 'Big_bon',
+    price: '120',
+    category: main_category
+  },
+  {
+    title: 'Vodka',
+    price: '666',
+    category: drink_category
+  },
+  {
+    title: 'Coca-Cola',
+    price: '50',
+    category: drink_category
+  },
+  {
+    title: 'Green Tea',
+    price: '10',
+    category: drink_category
+  }
 ])

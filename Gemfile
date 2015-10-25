@@ -21,7 +21,6 @@ gem 'faker'
 gem 'assert_difference'
 gem 'rails_best_practices'
 
-
 group :doc do
   gem 'sdoc', '0.3.20', require: false
 end
